@@ -18,12 +18,12 @@ Vagrant will create a new virtual machine based on Ubuntu Xenial 16.04.4 LTS (or
 5. downloads and installs the Oracle JDK 8 or 10 from the Oracle website
 6. sets the newly installed ```java``` as the default alternative
 
-In order to select one (or more) JDKs, open the ```Vagrantfile``` and sepcify the desired versions on the lines that read
+In order to select one (or more) JDKs, open the ```Vagrantfile``` and specify the desired versions on the lines that read
 ```bash
 	# JDK version, can be one or more of 8 and 10; the last one is set as default
 	sh.args = ["8", "10"] 
 ```
-The last one will be set as the default.
+In this example, both the Oracle JDK8 and JDK10 will be installed; the last one in the list (JDK10) will be set as the default, simply available as  ```java```.
 
 ## Operating from behind a proxy
 
