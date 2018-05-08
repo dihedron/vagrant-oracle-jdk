@@ -1,6 +1,6 @@
-# Creating a VM with the Oracle JDK 10
+# Creating a VM with the Oracle JDK 8 and/or 10
 
-This projects contains the __Vagrant__ recipe to create a VM with the latest version of the __Oracle JDK 10__.
+This projects contains the __Vagrant__ recipe to create a VM with one or more versions of the __Oracle JDK__.
 
 ## Creating the VM
 
@@ -13,10 +13,17 @@ $> vagrant up
 Vagrant will create a new virtual machine based on Ubuntu Xenial 16.04.4 LTS (or Ubuntu Bionic 18.04) and then it will run the ```setup.sh``` script which:
 1. updates the system
 2. accepts the license agreement
-3. adds the ```linuxuprising/java``` repository
-4. installs the Oracle JDK 10 metapackage, which in its turn
-5. downloads and installs the Oracle JDK 10 from the Oracle website
+3. adds the ```webupd8``` or the ```linuxuprising/java``` repository
+4. installs the Oracle JDK 8 or 10 metapackage, which in its turn
+5. downloads and installs the Oracle JDK 8 or 10 from the Oracle website
 6. sets the newly installed ```java``` as the default alternative
+
+In order to select one (or more) JDKs, open the ```Vagrantfile``` and sepcify the desired versions on the lines that read
+```bash
+	# JDK version, can be one or more of 8 and 10; the last one is set as default
+	sh.args = ["8", "10"] 
+```
+The last one will be set as the default.
 
 ## Operating from behind a proxy
 
